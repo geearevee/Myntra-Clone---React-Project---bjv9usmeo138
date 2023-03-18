@@ -7,7 +7,7 @@ const Aside = () => {
 //     console.log(e.target.value);
 //   }
   return (
-    <form onChange={handleChange} className='aside'>
+    <form  className='aside'>
         <div className="form-group">
             <h3>Gender:-</h3>
             <input id="maleRadio" type='radio'  name='gender' value='Male'/>
