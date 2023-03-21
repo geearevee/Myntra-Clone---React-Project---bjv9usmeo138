@@ -2,10 +2,14 @@ import React from 'react'
 import cartImage from '../images/cart-shopping-solid.svg';
 import myntraimge from '../images/myntra.webp';
 // import cartImage from './src' cart-shopping-solid
+import {Link} from "react-router-dom";
 const Navbar = () => {
   return (
     <div className='navbar'>
-      <img className='logo' src={myntraimge}></img>
+
+      <Link to="/">
+        <img className='logo' src={myntraimge}></img>
+      </Link>
       <div className='buttons'>
         <p>Men</p>
         <p>Women</p>
@@ -15,7 +19,9 @@ const Navbar = () => {
         <input type="text" placeholder='Type to search'/>
       </div>
       <div className='cart'>
-        <img src={cartImage}></img>
+        <Link to="/cart">
+          <img src={cartImage}></img>
+        </Link>
       </div>
 
     </div>

@@ -56,3 +56,23 @@
   height: auto;
     width: 40px;
 }
+
+
+.main{
+  display: flex;
+  height: calc(100vh - 90px);
+}
+.aside{
+  /* flex-grow flex-shink flex-basis*/
+  flex: 0 0 300px;
+  background-color: yellow;
+  padding: 10px;
+} 
+.ProductContainer{
+  flex: 1 1 auto;
+  height: 100%;
+  background-color: red;
+}
+.aside .form-group ~ .form-group{
+  margin-top: 20px;
+}
