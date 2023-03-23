@@ -65,14 +65,62 @@
 .aside{
   /* flex-grow flex-shink flex-basis*/
   flex: 0 0 300px;
-  background-color: yellow;
+  /* background-color: yellow; */
   padding: 10px;
 } 
 .ProductContainer{
   flex: 1 1 auto;
   height: 100%;
-  background-color: red;
+  max-height: 100%;
+  /* background-color: red; */
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: center;
+  background-color: rgb(242, 215, 249);
 }
+.ProductCard{
+  width: 300px;
+  height: 580px;
+  background-color: rgb(251, 241, 255);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ProductCard > *{
+  padding: 5px;
+}
+.product-title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+
+.ProductCard img{
+  width: 300px;
+  height: 410px;
+  object-fit: cover;
+  padding: 0px;
+}
+.product-discount{
+  color: rgb(227, 103, 36);
+  font-size: .9rem;
+  font-weight: bold;
+}
+.product-strike_price{
+  text-decoration: line-through;
+  display: inline-block;
+  margin-right: 10px;
+}
+.product-discounted_price{
+  display: inline-block;
+  color: rgb(25, 184, 25);
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
 .aside .form-group ~ .form-group{
   margin-top: 20px;
 }
