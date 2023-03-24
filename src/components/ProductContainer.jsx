@@ -1,12 +1,16 @@
 import React from 'react'
 import ProductCard from './ProductCard';
+import { Link } from 'react-router-dom';
 const ProductContainer = ({data}) => {
-  console.log(typeof data,data);
   return (
     <div className='ProductContainer'>
         {
             data.map(product => {
-                return <ProductCard key={product.id} product={product}/>
+                return (
+                  <Link key={product.id} to={`/product/${product.id}`}>
+                    <ProductCard product={product}/>
+                  </Link> 
+                )
             })
         }
     </div>

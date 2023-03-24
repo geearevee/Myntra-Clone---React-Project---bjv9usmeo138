@@ -12,6 +12,7 @@ import ErrorPage from "./components/ErrorPage";
 import Cart from "./components/cart";
 import Home from "./components/Home";
 import Root from "./components/root";
+import ProductDetails from "./components/ProductDetails";
 export const productContext = createContext();
 const router = createBrowserRouter([
   {
@@ -26,13 +27,37 @@ const router = createBrowserRouter([
           {
               path : "/cart",
               element : <Cart/>,
+          },
+          {
+            path : "/product/:productId",
+            element : <ProductDetails/>,
           }
       ]
   }
 ])
 function App() {
+  const [data, setData] = useState([]);
+  const mensUrl = "https://classic-world.onrender.com/MensData";
+  const womansUrl = "https://classic-world.onrender.com/WomensData";
+  const childrenUrl = "https://classic-world.onrender.com/ChildrensData";
+  const fetchData = async (url) => {
+    const query = await fetch(url);
+    return query.json();
+  }
+  useEffect(() => {
+    fetchData(mensUrl).then(data => setData(data));
+  },[])
+  const changeData = async (target) => {
+    if(target.gender === "Female"){
+      const data = await fetchData(womansUrl);
+      setData(data);
+    }else{
+      const data = await fetchData(mensUrl);
+      setData(data);
+    }
+  }
   return (
-    <productContext.Provider value={[]}>
+    <productContext.Provider value={{data,setData,changeData}}>
       <RouterProvider router={router} />
     </productContext.Provider>
   );
