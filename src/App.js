@@ -4,15 +4,37 @@ import Navbar from './components/Navbar';
 import './App.css';
 import Aside from './components/Aside'
 import ProductContainer from './components/ProductContainer';
-import {Outlet, Link} from "react-router-dom"
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
+import Cart from "./components/cart";
+import Home from "./components/Home";
+import Root from "./components/root";
+export const productContext = createContext();
+const router = createBrowserRouter([
+  {
+      path : "/",
+      element : <Root/>,
+      errorElement : <ErrorPage />, 
+      children : [
+          {
+              path : "/",
+              element : <Home />
+          },
+          {
+              path : "/cart",
+              element : <Cart/>,
+          }
+      ]
+  }
+])
 function App() {
   return (
-      <div className="App">
-        <Navbar/>
-        <div className="mainContainer"> 
-            <Outlet/>
-        </div>
-      </div>
+    <productContext.Provider value={[]}>
+      <RouterProvider router={router} />
+    </productContext.Provider>
   );
 }
 
