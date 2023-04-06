@@ -37,6 +37,9 @@ const router = createBrowserRouter([
 ])
 function App() {
   const [data, setData] = useState([]);
+  const [user,setUser] = useState(null);
+  const [showNavOptions, setShowNavOptions] = useState(false);
+  const [cart , setCart] = useState([]);
   const mensUrl = "https://classic-world.onrender.com/MensData";
   const womansUrl = "https://classic-world.onrender.com/WomensData";
   const childrenUrl = "https://classic-world.onrender.com/ChildrensData";
@@ -56,8 +59,19 @@ function App() {
       setData(data);
     }
   }
+  const value = {
+    data,
+    setData,
+    changeData,
+    user,
+    setUser,
+    showNavOptions,
+    setShowNavOptions,
+    cart,
+    setCart
+  }
   return (
-    <productContext.Provider value={{data,setData,changeData}}>
+    <productContext.Provider value={value}>
       <RouterProvider router={router} />
     </productContext.Provider>
   );

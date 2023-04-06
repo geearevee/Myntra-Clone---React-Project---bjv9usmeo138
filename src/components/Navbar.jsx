@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import cartImage from '../images/cart-shopping-solid.svg';
 import myntraimge from '../images/myntra.webp';
+import {productContext} from "../App";
+import {signInWithGoogle} from "../Auth.js";
+import Profile from "./Profile"
 // import cartImage from './src' cart-shopping-solid
 import {Link} from "react-router-dom";
 const Navbar = () => {
+  const {user,setUser} = useContext(productContext);
+  const handleLogin = async () => {
+    const user = await signInWithGoogle();
+    if(user){
+      setUser(user)
+    }
+  }
   return (
     <div className='navbar'>
 
@@ -18,7 +28,11 @@ const Navbar = () => {
       <div className='search'>
         <input type="text" placeholder='Type to search'/>
       </div>
-      <div className='cart'>
+
+      <div className='nav-left-items'>
+        {
+          user ? (<Profile/>) : (<button onClick={handleLogin}>Login With Google</button>)
+        }
         <Link to="/cart">
           <img src={cartImage}></img>
         </Link>
