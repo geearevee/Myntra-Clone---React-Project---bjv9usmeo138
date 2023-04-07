@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { productContext } from '../App';
+import Navbar from './Navbar';
 const ProductDetails = () => {
   const [productData, setProductData] = useState(null);
   const {data} = useContext(productContext);
@@ -13,8 +14,24 @@ const ProductDetails = () => {
     // console.log(singleProductData.images)
     // console.log(singleProductData.images.slice(1,3));
     // console.log(singleProductData);
-  },[]) 
-  
+  },[])
+
+ const cart = ()=>{
+    setCartnumber(count)
+ }
+  // add iems to cart
+  const [count, setCount] = useState(0);
+  const add = () =>{
+          setCount(count+1);
+  }
+  const subtract = () =>{
+    if(count<=0)
+    {setCount(0);}
+    else{
+    setCount(count-1);
+    }
+  }
+  // add items to cart
   return (
     <div className='productDetailsContainer'>
       {
@@ -44,7 +61,11 @@ const ProductDetails = () => {
                 {productData.size.map((item, index) => {
                   return <div key={index} className='size-circle'>{item}</div>
                 })}
+
+                
               </div>
+              <div><button onClick={add}>+</button> <span>{count}</span> <button onClick={subtract}>-</button></div>
+              <div><button onClick={cart}>Add to cart</button></div>
             </div>
           </>
         )
