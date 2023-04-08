@@ -4,8 +4,9 @@ import { productContext } from '../App';
 import Navbar from './Navbar';
 const ProductDetails = () => {
   const [productData, setProductData] = useState(null);
-  const {data} = useContext(productContext);
+  const {data, setCartvalue,cart, setCart} = useContext(productContext);
   const {productId} = useParams();
+  const [count, setCount] = useState(0);
   useEffect(() => {
     const [singleProductData] = data.filter(product => product.id === productId) 
     singleProductData.images = singleProductData.images.slice(0,4);
@@ -16,20 +17,21 @@ const ProductDetails = () => {
     // console.log(singleProductData);
   },[])
 
- const cart = ()=>{
-  <dv>0</dv>
- }
   // add iems to cart
-  const [count, setCount] = useState(0);
   const add = () =>{
-          setCount(count+1);
+      setCount(count+1);
   }
   const subtract = () =>{
     if(count<=0)
     {setCount(0);}
     else{
-    setCount(count-1);
+      setCount(count-1);
     }
+  }
+  const cartg = ()=>{
+    setCartvalue(count);
+    setCart(prevState => ([...prevState, {...productData, productCount : count }]))
+    
   }
   // add items to cart
   return (
@@ -65,7 +67,7 @@ const ProductDetails = () => {
                 
               </div>
               <div><button onClick={add}>+</button> <span>{count}</span> <button onClick={subtract}>-</button></div>
-              <div><button onClick={cart}>Add to cart</button></div>
+              <div><button onClick={cartg}>Add to cart</button></div>
             </div>
           </>
         )

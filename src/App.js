@@ -59,7 +59,7 @@ function App() {
       setData(data);
     }
   }
-  
+  const[cartvalue, setCartvalue] = useState(0);
   const value = {
     data,
     setData,
@@ -70,6 +70,8 @@ function App() {
     setShowNavOptions,
     cart,
     setCart,
+    cartvalue,
+    setCartvalue
   }
   return (
     <productContext.Provider value={value}>

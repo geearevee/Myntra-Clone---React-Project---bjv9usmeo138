@@ -7,7 +7,7 @@ import Profile from "./Profile"
 // import cartImage from './src' cart-shopping-solid
 import {Link} from "react-router-dom";
 const Navbar = () => {
-  const {user,setUser} = useContext(productContext);
+  const {user,setUser, cartvalue} = useContext(productContext);
   const handleLogin = async () => {
     const user = await signInWithGoogle();
     if(user){
@@ -37,7 +37,7 @@ const Navbar = () => {
         <Link to="/cart">
           <img src={cartImage}></img>
         </Link>
-        <div>0</div>
+        <div>{cartvalue}</div>
       </div>
 
     </div>
