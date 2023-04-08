@@ -17,7 +17,7 @@ const ProductDetails = () => {
   },[])
 
  const cart = ()=>{
-    setCartnumber(count)
+  <dv>0</dv>
  }
   // add iems to cart
   const [count, setCount] = useState(0);

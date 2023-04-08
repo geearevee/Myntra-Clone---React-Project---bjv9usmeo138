@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import cartImage from '../images/cart-shopping-solid.svg';
 import myntraimge from '../images/myntra.webp';
 import {productContext} from "../App";
@@ -14,6 +14,7 @@ const Navbar = () => {
       setUser(user)
     }
   }
+  
   return (
     <div className='navbar'>
 
@@ -36,6 +37,7 @@ const Navbar = () => {
         <Link to="/cart">
           <img src={cartImage}></img>
         </Link>
+        <div>0</div>
       </div>
 
     </div>
