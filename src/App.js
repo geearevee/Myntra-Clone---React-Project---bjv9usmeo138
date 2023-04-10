@@ -13,6 +13,8 @@ import Cart from "./components/cart";
 import Home from "./components/Home";
 import Root from "./components/root";
 import ProductDetails from "./components/ProductDetails";
+import Payment from "./components/payment";
+
 export const productContext = createContext();
 const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
           {
             path : "/product/:productId",
             element : <ProductDetails/>,
+          },
+          {
+            path : "/checkout",
+            element : <Payment/>,
           }
       ]
   }

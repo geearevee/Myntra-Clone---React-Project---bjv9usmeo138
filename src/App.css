@@ -86,9 +86,9 @@
 }
 .aside{
   /* flex-grow flex-shink flex-basis*/
-  flex: 0 0 300px;
+  flex: 0 0 300px !important;
   /* background-color: yellow; */
-  padding: 10px;
+  padding: 10px !important;
 } 
 .ProductContainer{
   flex: 1 1 auto;
@@ -144,8 +144,15 @@
 }
 
 .aside .form-group ~ .form-group{
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
+/* form.aside{
+  opacity: 1 !important;
+  max-height: none !important;
+} */
+/* form.aside{
+
+} */
 
 /***********************
 * productDetailsContainer
@@ -275,6 +282,14 @@
 }
 .product_card{
   display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.product_card img{
+  border-radius: 8px;
 }
 .price_calculation{
   background-color: lightpink;
@@ -283,4 +298,29 @@
   flex: 0 0 400px;
   border-radius: 8px;
   max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+  font-size: 18px
+}
+.price_calculation a{
+  color : black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: white;
+  transition: .3s ease all;
+  text-decoration: none;
+}
+.price_calculation p{
+  font-size: 24px;
+  font-weight: bold;
+}
+.price_calculation a:hover{
+  transform: translateY(-3px);
+}
+.cartImage{
+  display: block;
+  margin: 0 auto;
 }

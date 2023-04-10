@@ -11,8 +11,8 @@ const Aside = ({changeData}) => {
       changeData({gender : gender.gender,isWhite,isfoldedSleeve})
     },[gender,isWhite,isfoldedSleeve])
   return (
-    <form  className='aside' >
-        <div className="form-group" onChange={changeGender}>
+    <aside  className='aside' >
+        <div className="form-groups" onChange={changeGender}>
             <h3>Gender:-</h3>
             <input defaultChecked={true} id="maleRadio" type='radio'  name='gender' value='Male'/>
             <label htmlFor='maleRadio'>Male</label>
@@ -20,7 +20,7 @@ const Aside = ({changeData}) => {
             <input  id="femaleRadio" type='radio' name ='gender' value='Female'/>
             <label htmlFor='femaleRadio'>Female</label>
         </div>
-        <div className="form-group">
+        <div className="form-groups">
             <h3>Categories:-</h3>
             <input checked={isWhite}
                 onChange={(e) => setIsWhite(e.target.checked)}  
@@ -38,7 +38,7 @@ const Aside = ({changeData}) => {
                 value='foldedSleeve'/>
             <label htmlFor='foldedSleeve'>Non White</label>
         </div>
-    </form>
+    </aside>
     )
 }
 
