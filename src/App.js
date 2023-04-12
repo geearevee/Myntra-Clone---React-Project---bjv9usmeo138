@@ -6,7 +6,8 @@ import Aside from './components/Aside'
 import ProductContainer from './components/ProductContainer';
 import {
   createBrowserRouter,
-  RouterProvider
+  RouterProvider,
+  useAsyncError
 } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Cart from "./components/cart";
@@ -14,7 +15,6 @@ import Home from "./components/Home";
 import Root from "./components/root";
 import ProductDetails from "./components/ProductDetails";
 import Payment from "./components/payment";
-
 export const productContext = createContext();
 const router = createBrowserRouter([
   {
@@ -42,6 +42,8 @@ const router = createBrowserRouter([
   }
 ])
 function App() {
+  const [loader, setLoader] = useState(true);
+
   const [data, setData] = useState([]);
   const [user,setUser] = useState(null);
   const [showNavOptions, setShowNavOptions] = useState(false);
@@ -49,22 +51,29 @@ function App() {
   const mensUrl = "https://classic-world.onrender.com/MensData";
   const womansUrl = "https://classic-world.onrender.com/WomensData";
   const childrenUrl = "https://classic-world.onrender.com/ChildrensData";
+  
   const fetchData = async (url) => {
     const query = await fetch(url);
     return query.json();
   }
   useEffect(() => {
-    fetchData(mensUrl).then(data => setData(data));
+    fetchData(mensUrl).then(data => {
+      setData(data);
+      setLoader(false);
+    });
   },[])
   const changeData = async (target) => {
     if(target.gender === "Female"){
       const data = await fetchData(womansUrl);
       setData(data);
+      setLoader(false);
     }else{
       const data = await fetchData(mensUrl);
       setData(data);
+      setLoader(false);
     }
   }
+  // setLoader(false);
   const[cartvalue, setCartvalue] = useState(0);
   const value = {
     data,
@@ -77,7 +86,9 @@ function App() {
     cart,
     setCart,
     cartvalue,
-    setCartvalue
+    setCartvalue,
+    loader,
+    setLoader
   }
   return (
     <productContext.Provider value={value}>

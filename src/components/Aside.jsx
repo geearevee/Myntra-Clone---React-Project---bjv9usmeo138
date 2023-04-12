@@ -1,10 +1,13 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useContext} from 'react'
+import { productContext } from '../App';
 
 const Aside = ({changeData}) => {
+  const {loader,setLoader} = useContext(productContext);
     const [gender, setGender] = useState({ gender: "" });
     const [isWhite, setIsWhite] = useState(true);
     const [isfoldedSleeve, setIsFoldedSleeve] = useState(true); 
     const changeGender = (event) => {
+        setLoader(true);
         setGender({gender: event.target.value });
     };
     useEffect(() => {

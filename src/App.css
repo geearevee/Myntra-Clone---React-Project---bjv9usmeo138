@@ -102,10 +102,11 @@
   overflow-y: auto;
   justify-content: center;
   background-color: rgb(242, 215, 249);
+  position: relative;
 }
 .ProductCard{
   width: 300px;
-  height: 580px;
+  height: 600px;
   background-color: rgb(251, 241, 255);
   border-radius: 5px;
   cursor: pointer;
@@ -287,6 +288,8 @@
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+  min-height: max-content;
+  /* background-color: red; */
 }
 .product_card img{
   border-radius: 8px;
@@ -323,4 +326,13 @@
 .cartImage{
   display: block;
   margin: 0 auto;
+}
+.loadingGif{
+  height: 200px;
+  width: auto;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  /* object-fit: contain; */
+  /* filter: invert(); */
 }
