@@ -1,6 +1,19 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import "./payment.css"
+import { productContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 const Payment = () => {
+  const navigate = useNavigate();
+  const {setCart,setCartvalue} = useContext(productContext);
+  function handleSubmit(e){
+     e.preventDefault();
+     navigate("/");
+     alert('Your order has been placed successfully');
+      setCartvalue(0);
+      setCart([]);
+
+
+  }
   return (
 <div><h1>Choose Payment</h1>
 <p id="choosen-paymenttype">Credit Card</p>
@@ -121,7 +134,7 @@ const Payment = () => {
       </div>
     </header>
 
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-content">
         <div className="field">
           <input type="tel" id="cardnumber" maxLength="20" />
