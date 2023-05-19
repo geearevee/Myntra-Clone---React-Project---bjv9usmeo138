@@ -1,3 +1,15 @@
+DESCRIPTION:  This project is Myntra website clone which uses api to control data and filters are used to make it more user friendly.
+TECH STACK:   REACT, HTML CSS Javascript
+FEATURES -
+
+->Using REACT Myntra Clone is created. Added loader before fetching API's to create a better customer experience.
+->Using different API's  I have rendered it in UI.
+->Updating cart using using Context Api.
+->Making of payment functionality using Bootstrap.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
