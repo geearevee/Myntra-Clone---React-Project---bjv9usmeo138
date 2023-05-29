@@ -47,20 +47,22 @@ function App() {
   const [data, setData] = useState([]);
   const [user,setUser] = useState(null);
   const [showNavOptions, setShowNavOptions] = useState(false);
-  const [cart , setCart] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [searchvalue, setSearchValue] = useState(""); // you are storing search string so inital value can be "" empty string
   const mensUrl = "https://classic-world.onrender.com/MensData";
   const womansUrl = "https://classic-world.onrender.com/WomensData";
-  const childrenUrl = "https://classic-world.onrender.com/ChildrensData";
   
   const fetchData = async (url) => {
     const query = await fetch(url);
     return query.json();
   }
   useEffect(() => {
-    fetchData(mensUrl).then(data => {
+    const homePageData = async () => {
+      let data = await fetchData(mensUrl);
       setData(data);
       setLoader(false);
-    });
+    }
+    homePageData();
   },[])
   const changeData = async (target) => {
     if(target.gender === "Female"){
@@ -69,9 +71,15 @@ function App() {
       setLoader(false);
     }else{
       const data = await fetchData(mensUrl);
+
+      console.log(data);
       setData(data);
       setLoader(false);
     }
+  }
+  function searchResult(){
+     let filteredResults = data.filter(result => result.brand === searchvalue);
+     setData(filteredResults);
   }
   // setLoader(false);
   const[cartvalue, setCartvalue] = useState(0);
@@ -88,7 +96,10 @@ function App() {
     cartvalue,
     setCartvalue,
     loader,
-    setLoader
+    setLoader,
+    searchvalue,
+    setSearchValue,
+    searchResult
   }
   return (
     <productContext.Provider value={value}>

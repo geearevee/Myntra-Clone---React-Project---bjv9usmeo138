@@ -25,9 +25,12 @@ const Cart = () => {
         ) 
       }
     </div>
-
+        
     
       <div className="price_calculation">
+      <div>
+         <strong>YOUR SUB TOTAL</strong> 
+        </div>
           
           {
             cart.length === 0 ? (<img className="cartImage" src={emptyCartImg}/>) : (
@@ -35,7 +38,7 @@ const Cart = () => {
             <p>
               {cart.reduce((acc,current,index) => ((acc+Number(current.discounted_price))* Number(current.productCount)),0)}₹
             </p>
-            <Link to="/checkout">Proceed to checkout</Link>
+            <Link to="/checkout">Proceed to checkout </Link>
             </>
             )
           }

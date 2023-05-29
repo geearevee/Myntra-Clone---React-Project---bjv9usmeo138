@@ -5,7 +5,9 @@ const auth = getAuth(app);
 
 export const signInWithGoogle = async () => {
     try{
-        const result = await signInWithPopup(auth, provider)
+        const result = await signInWithPopup(auth, provider);
+        // continue..
+
         // const credential = GoogleAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
         const user = result.user;
@@ -18,8 +20,9 @@ export const signInWithGoogle = async () => {
         return null;
   };
 }
-
+// to check after refresh if the cx is logged in or not
 export const authChecker = async (cbFunction) => {
+    // login => logout => loging
     onAuthStateChanged(auth, (user) => cbFunction(user));
 }
 

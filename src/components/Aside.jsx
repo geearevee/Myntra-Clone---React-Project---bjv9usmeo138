@@ -10,6 +10,7 @@ const Aside = ({changeData}) => {
         setLoader(true);
         setGender({gender: event.target.value });
     };
+    
     useEffect(() => {
       changeData({gender : gender.gender,isWhite,isfoldedSleeve})
     },[gender,isWhite,isfoldedSleeve])

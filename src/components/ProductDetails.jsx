@@ -5,12 +5,20 @@ import Navbar from './Navbar';
 const ProductDetails = () => {
   const [productData, setProductData] = useState(null);
   const {data, setCartvalue,cart, setCart} = useContext(productContext);
+  // http://ecommerc.com/product/2323
   const {productId} = useParams();
   const [count, setCount] = useState(0);
   useEffect(() => {
     const [singleProductData] = data.filter(product => product.id === productId) 
     singleProductData.images = singleProductData.images.slice(0,4);
     setProductData(singleProductData);
+
+    /* 
+      const fruits = [ "Apple", "Mango", "Kiwi"];
+      fruits.splice(0, 2);
+      // At position 0, remove 2 items:
+      https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_splice2
+    */
     // console.log("look here")
     // console.log(singleProductData.images)
     // console.log(singleProductData.images.slice(1,3));
@@ -31,7 +39,6 @@ const ProductDetails = () => {
   const cartg = ()=>{
     setCartvalue(count);
     setCart(prevState => ([...prevState, {...productData, productCount : count }]))
-    
   }
   // add items to cart
   return (
