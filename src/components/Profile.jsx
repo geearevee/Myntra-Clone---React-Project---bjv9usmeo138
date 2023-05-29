@@ -22,7 +22,7 @@ const Profile = () => {
             <p>{displayName}</p>
         </div>
         {
-            showNavOptions && createPortal(<ProfileOptions position={position}/>,document.getElementById("protalRoot"))
+            (showNavOptions && position) && createPortal(<ProfileOptions position={position}/>,document.getElementById("protalRoot"))
         }
     </>
   )
