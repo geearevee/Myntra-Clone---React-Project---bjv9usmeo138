@@ -37,29 +37,21 @@
 
 .search {
   flex: 1 1 auto;
-  border: brown 2px solid;
-  /* height: 800px; */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 30px;
 }
-
-/* .search form{
-  width: 100%;
-  height: 100%;
-  border : 2px solid red;
-  display:block;
-} */
-/* .search input[type="text"]{
-
-.search input[type="text"] {
-  display: block;
-  width: 500px;
-  height: 50px;
-  border-radius: 5px;
-  padding: 0px 10px;
-  height: 70px;
-} */
+.search form {
+  display: flex;
+  width: 100% !important;
+  max-width: 600px !important;
+  align-items: center;
+  max-height: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+}
 
 .nav-left-items {
   flex: 0 0 max-content;
@@ -164,13 +156,6 @@
 .aside .form-group ~ .form-group {
   margin-top: 20px !important;
 }
-/* form.aside{
-  opacity: 1 !important;
-  max-height: none !important;
-} */
-/* form.aside{
-
-} */
 
 /***********************
 * productDetailsContainer
@@ -335,7 +320,7 @@
   transition: 0.3s ease all;
   text-decoration: none;
 }
-.price_calculation p{
+.price_calculation p {
   font-size: 50px;
   font-weight: bold;
 }
