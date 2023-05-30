@@ -4,7 +4,7 @@ import Payment from './payment';
 import { Link } from 'react-router-dom';
 import emptyCartImg from "../images/emptycart.png"
 const Cart = () => {
-  const {cart} = useContext(productContext);
+  const {cart, user,setCart} = useContext(productContext);
   return (
     <>
       <h2 className="cart_page_h2">Selected products</h2>
@@ -33,12 +33,21 @@ const Cart = () => {
         </div>
           
           {
-            cart.length === 0 ? (<img className="cartImage" src={emptyCartImg}/>) : (
+            cart.length === 0 ? (<img className="cartImage" src={emptyCartImg} />) : (
             <>
-            <p>
-              {cart.reduce((acc,current,index) => ((acc+Number(current.discounted_price))* Number(current.productCount)),0)}₹
-            </p>
-            <Link to="/checkout">Proceed to checkout </Link>
+              <p>
+                {cart.reduce((acc,current,index) => ((acc+Number(current.discounted_price))* Number(current.productCount)),0)}₹
+              </p>
+            
+              {
+                user!= null ? <Link to="/checkout" >Proceed to checkout </Link> : <div className='logintocheckout' >Login to checkout </div>      
+
+              }
+              {/* only show clear cart when cart has some items  */}
+              {
+               cart.length !== 0 ? <button onClick={() => setCart([])}>CLEAR CART</button> : ""
+              }
+              
             </>
             )
           }

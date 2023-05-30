@@ -13,7 +13,7 @@ const ProfileOptions = ({position}) => {
   const signOut = async () => {
     const isLoggedOut = await logoutUser();
     if(isLoggedOut){
-        setUser(false);
+        setUser(null);
         return null;
     }
     console.log("logging out failed")
