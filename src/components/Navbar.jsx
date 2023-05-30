@@ -55,4 +55,5 @@ export default Navbar
     => nav Items
     => search bar
     => cart
+    =>hi
 */
