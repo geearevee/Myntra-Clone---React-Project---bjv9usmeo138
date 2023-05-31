@@ -44,9 +44,7 @@ const Cart = () => {
 
               }
               {/* only show clear cart when cart has some items  */}
-              {
-               cart.length !== 0 ? <button onClick={() => setCart([])}>CLEAR CART</button> : ""
-              }
+             
               
             </>
             )
