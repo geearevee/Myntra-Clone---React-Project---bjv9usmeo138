@@ -28,7 +28,7 @@ const Navbar = () => {
       </div>
       {/* //search functionailty */}
       <div className='search'>
-        {/* you can define the funciton in app file and make it global by adding to value object  */}
+        
         <form onSubmit={searchResult}>
           <input value={searchvalue} onInput={(e)=> setSearchValue(e.target.value)}  type="text" placeholder='Type to search'/>
         </form>

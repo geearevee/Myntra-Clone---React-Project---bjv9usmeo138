@@ -3,11 +3,11 @@ import ProductContainer from "./ProductContainer";
 import Aside from "./Aside";
 import { productContext } from '../App';
 const Home = () => {
-  const {data,changeData} = useContext(productContext);
+  const {data,changeData, pageData, setPageData} = useContext(productContext);
   return (
     <div className='main'>
         <Aside changeData={changeData}/>
-        <ProductContainer data={data}/>
+        <ProductContainer data={pageData}/>
     </div>
   )
 }
