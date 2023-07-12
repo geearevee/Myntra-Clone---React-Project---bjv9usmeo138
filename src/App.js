@@ -55,7 +55,8 @@ function App() {
 
   const fetchData = async (url) => {
     const query = await fetch(url);
-    return query.json();
+    return   query.json();
+    
   };
   useEffect(() => {
     const homePageData = async () => {
@@ -77,20 +78,18 @@ function App() {
   const changeData = async (target) => {
     if (target.gender === "Female") {
       const data = await fetchData(womansUrl);
-      // let slicedData = data;
-      // if(data.length > 10){
-      //   slicedData = data.slice(0,10)
-      // }
-      // setData(slicedData);
+      //const data = arr1.map(items => items.discounted_price > 600);
       setData(data);
       setLoader(false);
     } else {
       const data = await fetchData(mensUrl);
+      
       // let slicedData = data;
       // if(data.length > 10){
       //   slicedData = data.slice(0,10)
       // }
       // setData(slicedData);
+      console.log(data);
       setData(data);
       setLoader(false);
     }

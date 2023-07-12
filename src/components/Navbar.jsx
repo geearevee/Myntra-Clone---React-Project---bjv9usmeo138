@@ -22,27 +22,33 @@ const Navbar = () => {
         <img className='logo' src={myntraimge} alt='myntraimage'></img>
       </Link>
       <div className='buttons'>
-        <p>Men</p>
-        <p>Women</p>
-        <p>Kid</p>
+        <p>MEN</p>
+        <p>WOMEN</p>
+        <p>KIDS</p>
+        <p>HOME & LIVING</p>
+        <p>BEAUTY</p>
+        <p>STUDIO</p>
       </div>
       {/* //search functionailty */}
       <div className='search'>
         
         <form onSubmit={searchResult}>
-          <input value={searchvalue} onInput={(e)=> setSearchValue(e.target.value)}  type="text" placeholder='Type to search'/>
+          <img className='nav-icons'  src="https://img.icons8.com/ios/28/search--v1.png" alt="search--v1"/>
+          <input  value={searchvalue} onInput={(e)=> setSearchValue(e.target.value)}  type="text" placeholder='Search for products, brands and more'/>
         </form>
         
       </div>
 
       <div className='nav-left-items'>
-        {
+      <img className='nav-icons'  src="https://img.icons8.com/ios/30/gender-neutral-user--v1.png" alt="gender-neutral-user--v1"/>
+
+        {/* {
           user ? (<Profile/>) : (<button onClick={handleLogin}>Login With Google</button>)
-        }
+        } */}
+        <img className='nav-icons'  src="https://img.icons8.com/small/32/shopping-bag.png" alt="shopping-bag"/>
         <Link to="/cart">
-          <img src={cartImage} alt='cartimage'></img>
+          <img className='nav-icons'  src="https://img.icons8.com/small/32/like--v1.png" alt="like--v1"/>
         </Link>
-        <div>{cartvalue}</div>
       </div>
 
     </div>
@@ -57,3 +63,4 @@ export default Navbar
     => cart
     =>hi
 */
+

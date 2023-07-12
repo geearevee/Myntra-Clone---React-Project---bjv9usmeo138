@@ -13,16 +13,6 @@ const ProductDetails = () => {
     singleProductData.images = singleProductData.images.slice(0,4);
     setProductData(singleProductData);
 
-    /* 
-      const fruits = [ "Apple", "Mango", "Kiwi"];
-      fruits.splice(0, 2);
-      // At position 0, remove 2 items:
-      https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_splice2
-    */
-    // console.log("look here")
-    // console.log(singleProductData.images)
-    // console.log(singleProductData.images.slice(1,3));
-    // console.log(singleProductData);
   },[])
 
   // add iems to cart

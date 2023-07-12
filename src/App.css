@@ -5,9 +5,12 @@
 .navbar {
   display: flex;
   align-items: center;
-  height: 90px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; /* background-color: gray; */
+  height: 80px;
+  justify-content: flex-start;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+  background-color: #fff;
+  webkit-box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+  padding: 0px;
 }
 /* 
    1.=> .logo
@@ -23,20 +26,31 @@
   /* flex-grow: 0;
   flex-shrink: 0;
   flex-basis: 100px; */
+  /* margin-right: 10px; */
   flex: 0 0 100px;
-  padding-right: 0px 20px;
+  position: relative;
+  /* scale: 1.1; */
+  
+  padding-right: 0px 0px 0px 20px;
   /* background-color: yellow; */
 }
 .buttons {
   padding-left: 20px;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   flex: 0 0 max-content;
+  font-weight: 700;
+  font-size: 14px;
+  padding-left: 0px;
   /* background-color: orange; */
+}
+.buttons > * {
+  cursor: pointer;
+  margin: 0px;
 }
 
 .search {
-  flex: 1 1 auto;
+  flex: 0 0 max-content;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -46,22 +60,46 @@
 .search form {
   display: flex;
   width: 100% !important;
-  max-width: 600px !important;
+  max-width: 500px !important;
   align-items: center;
-  max-height: 100% !important;
+  max-height: 40px !important;
   height: 100% !important;
   opacity: 1 !important;
+  padding: 5px;
+  /* background-color: lightgrey; */
+  background-color: #f5f5f6;
+  border: #f5f5f6 2px solid;
 }
-
+.search form input[type="text"]{
+  background-color: #f5f5f6;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  height: 100%;
+}
+.search form input[type="text"]:focus{
+  background-color: white;
+}
+.search form:has(input[type="text"]:focus){
+  background-color: white;
+}
 .nav-left-items {
   flex: 0 0 max-content;
   /* background-color: purple; */
   padding-right: 20px;
   display: flex;
   gap: 10px;
+  margin-left: auto;
+}
+.nav-left-items img{
+  cursor: pointer;
 }
 .nav-left-items a {
   display: flex;
+}
+.nav-icons{
+  width: max-content !important;
+  height: max-content !important;
 }
 
 .userProfile {

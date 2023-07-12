@@ -2,7 +2,7 @@ import React, {useState,useEffect,useContext} from 'react'
 import { productContext } from '../App';
 
 const Aside = ({changeData}) => {
-  const {loader,setLoader} = useContext(productContext);
+  const {loader,setLoader, data,setData, setPageData} = useContext(productContext);
     const [gender, setGender] = useState({ gender: "" });
     const [isWhite, setIsWhite] = useState(true);
     const [isfoldedSleeve, setIsFoldedSleeve] = useState(true); 
@@ -14,6 +14,17 @@ const Aside = ({changeData}) => {
     useEffect(() => {
       changeData({gender : gender.gender,isWhite,isfoldedSleeve})
     },[gender,isWhite,isfoldedSleeve])
+    
+    function greater(){
+        let newData = data.filter(item => item.discounted_price>600);
+        setPageData(newData);
+      }
+      
+      function small(){
+        let newData = data.filter(item => item.discounted_price<600);
+        setPageData(newData);
+
+    }
   return (
     <aside  className='aside' >
         <div className="form-groups" onChange={changeGender}>
@@ -42,6 +53,8 @@ const Aside = ({changeData}) => {
                 value='foldedSleeve'/>
             <label htmlFor='foldedSleeve'>Non White</label>
         </div>
+        <button onClick={greater}>greater than 600</button>
+        <button onClick={small}>small than 600</button>
     </aside>
     )
 }

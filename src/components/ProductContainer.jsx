@@ -32,9 +32,6 @@ const ProductContainer = () => {
           );
         })
       )}
-      {/* buttons to navigate pagination */}
-      {/* homw many buttons should I render  */}
-      {/* if I click on any button what logic should that button execute */}
       <div className="pagination-buttons">{buttons}</div>
     </div>
   );
