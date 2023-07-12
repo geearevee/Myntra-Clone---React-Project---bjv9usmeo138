@@ -7,9 +7,11 @@ const ProductCard = ({product}) => {
         <img alt='produtimage' src={product.images[0]}/>
         <p className='product-title'>{product.title}</p>
         <p className='product-brand'>{product.brand}</p>
-        <p className='product-discount'>{product.discount}</p>
-        <p className='product-strike_price'>{product.strike_price}</p>
-        <p className='product-discounted_price'>{product.discounted_price}₹</p>
+        <div className="card-group">
+          <p className='product-discounted_price'>{product.discounted_price}₹</p>
+          <p className='product-strike_price'>{product.strike_price}</p>
+          <p className='product-discount'>{product.discount}</p>
+        </div>
         <p className='product-rating'>{product.rating} ⭐</p>
       </div>
     )
