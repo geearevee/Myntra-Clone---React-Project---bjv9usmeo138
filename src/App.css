@@ -128,11 +128,13 @@
 .main {
   display: flex;
   min-height: calc(100vh - 90px);
+  padding-left: 80px;
 }
 .aside {
   flex: 0 0 300px !important;
   padding: 10px !important;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  border-right: rgba(0, 0, 0, 0.05) 1px solid;
 }
 
 .ProductContainer {

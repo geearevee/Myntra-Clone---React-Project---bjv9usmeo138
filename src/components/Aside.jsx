@@ -102,16 +102,16 @@ const Aside = ({ changeData }) => {
 
             {/* // color */}
             <div className="form-groups">
-                <h3>Categories</h3>
+                <h3>COLOR</h3>
                 <input
                     checked={isWhite}
                     onChange={(e) => setIsWhite(e.target.checked)}
-                    id="white"
+                    id="pink"
                     type="checkbox"
                     name="clothsColor"
                     value="white"
                 />
-                <label htmlFor="white">White</label>
+                <label htmlFor="pink">PINK</label>
                 <br />
                 <input
                     checked={isfoldedSleeve}
@@ -121,54 +121,10 @@ const Aside = ({ changeData }) => {
                     name="clothsColor"
                     value="foldedSleeve"
                 />
-                <label htmlFor="foldedSleeve">Non White</label>
+                <label htmlFor="foldedSleeve">RED</label>
             </div>
         </aside>
     );
 };
 
 export default Aside;
-/* 
-Gender :=
-input type="radio" name="gender" value="male"
-input type="radio" name="gender" value="female"
-*/
-
-/* 
-
-import React, { useState } from "react";
-
-export const Checkbox = () => {
-  const [permission, setPermission] = useState(false);
-
-  return (
-    <input
-      type="checkbox"
-      checked={permission}
-      onChange={(e) => setPermission(e.target.checked)}
-    />
-  );
-};
-
-*/
-
-/* 
-
-import React, { useState } from "react";
-
-const App = () => {
-  const [values, setValues] = useState({ gender: "" });
-  const setGender = (event) => {
-    setValues({ ...values, gender: event.target.value });
-  };
-  return (
-    <div onChange={setGender}>
-      <input type="radio" value="MALE" name="gender" /> Male
-      <input type="radio" value="FEMALE" name="gender" /> Female
-    </div>
-  );
-};
-
-export default App;
-
-*/

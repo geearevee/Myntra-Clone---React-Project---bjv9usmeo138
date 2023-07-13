@@ -38,13 +38,8 @@ const Navbar = () => {
         </form>
         
       </div>
-
       <div className='nav-left-items'>
-      <img className='nav-icons'  src="https://img.icons8.com/ios/30/gender-neutral-user--v1.png" alt="gender-neutral-user--v1"/>
-
-        {/* {
-          user ? (<Profile/>) : (<button onClick={handleLogin}>Login With Google</button>)
-        } */}
+        <Profile handleLogin={handleLogin}/>
         <img className='nav-icons'  src="https://img.icons8.com/small/32/shopping-bag.png" alt="shopping-bag"/>
         <Link to="/cart">
           <img className='nav-icons'  src="https://img.icons8.com/small/32/like--v1.png" alt="like--v1"/>
