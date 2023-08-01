@@ -1,5 +1,5 @@
 import React from "react";
-
+import sale from "../images/sale33333.jpg"
 const DropDown = ({ options }) => {
     return <div className="dropDownContainer"></div>;
 };
@@ -16,12 +16,12 @@ const SecondaryNav = () => {
     return (
         <div className="secondary-nav">
         
-            <h2 className="secondaryNavHeader">
-                Myntra fashion store - 10,000+ items
-            </h2>
-            <div className="secondaryNav">
+            {/* <h2 className="secondaryNavHeader"> */}
+               <img className="saleimage"  src={sale} alt="saleimg"/>
+            {/* </h2> */}
+            {/* <div className="secondaryNav">
                 <DropDown options={dropDownOptions} />
-            </div>
+            </div> */}
         </div>
     );
 };
