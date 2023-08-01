@@ -24,15 +24,19 @@ const ProductContainer = () => {
       {loader ? (
         <img className="loadingGif" src={load} />
       ) : (
-        pageData.map((product) => {
-          return (
-            <Link key={product.id} to={`/product/${product.id}`}>
-              <ProductCard product={product} />
-            </Link>
-          );
-        })
+        <>
+          {
+            pageData.map((product) => {
+              return (
+                <Link key={product.id} to={`/product/${product.id}`}>
+                  <ProductCard product={product} />
+                </Link>
+              );
+            })
+          }
+          <div className="pagination-buttons">{buttons}</div>
+        </>
       )}
-      <div className="pagination-buttons">{buttons}</div>
     </div>
   );
 };

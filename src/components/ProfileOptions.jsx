@@ -1,15 +1,10 @@
 import React,{useContext} from 'react'
 import {logoutUser} from "../Auth";
 import {productContext} from "../App";
-
+import {signInWithGoogle} from "../Auth";
 const ProfileOptions = ({position}) => {
-  const {setUser} = useContext(productContext);
-  const {x , bottom,right} = position;
-  const style = {
-    top : `${bottom + 5}px`,
-    left : `${x}px`,
-    width : `${right - x}px`,
-  }
+  const { user, setUser, showNavOptions, setShowNavOptions } =
+    useContext(productContext);
   const signOut = async () => {
     const isLoggedOut = await logoutUser();
     if(isLoggedOut){
@@ -18,9 +13,29 @@ const ProfileOptions = ({position}) => {
     }
     console.log("logging out failed")
   }
+  async function handleLogin() {
+    const user = await signInWithGoogle();
+    setUser(user);
+    // setShowNavOptions(!showNavOptions);
+  }
   return (
-    <div style={style} className="profileOptions">
-        <button onClick={signOut}>signout</button>
+    <div className="profileOptions">
+        {
+          user ? (
+            <>
+              <div className='profileOptions_profile'>
+                <img src={user.photoURL} alt='profileImg' />
+                <p> Hi, {user.displayName}</p>
+              </div>
+              <button onClick={signOut}>Signout</button>
+            </>
+          ) : (
+            <>
+              <p className='welcome_message'>Hi, Welcome to Myntra, Have a good day !</p>
+              <button onClick={handleLogin}>Login/Signup</button>
+            </>
+          )    
+        }
     </div>
   )
 }

@@ -314,17 +314,33 @@
   scale: 1.04;
 }
 .profileOptions {
-  position: fixed;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 8px;
-  background-color: rgb(223, 181, 228);
-  padding: 20px 0px;
+  position: absolute;
+  /* background-color: red; */
+  background-image: -webkit-gradient(linear,left top,right top,from(#b7b7bd),to(#afc5f9));
+  background-image: linear-gradient(90deg,#bfbfdb,#859acb);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 5px;
+  height: max-content;
+  width: 200px;
+  top: 100%;
+  right: 0px;
+  /* overflow-x: hidden; */
+  z-index: 100;
 }
 
 .profileOptions button {
   display: block;
-  width: 80%;
-  margin: 0 auto;
+  width: 70%;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  border: 0px;
+  border-top: 1px solid silver;
+  font-size: 18px;
+  font-weight: 700;
+  outline: none;
+
 }
 
 .cart_page {
@@ -480,4 +496,25 @@
 }
 a{
   text-decoration: none !important;
+}
+
+.profileOptions_profile{
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+.profileOptions_profile img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.profileIconContainer{
+  position: relative;
+}
+.welcome_message{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }

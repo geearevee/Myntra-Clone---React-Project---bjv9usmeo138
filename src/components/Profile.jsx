@@ -3,20 +3,19 @@ import { createPortal } from "react-dom";
 import { productContext } from "../App";
 import ProfileOptions from "./ProfileOptions";
 const Profile = ({handleLogin}) => {
-  // const [position, setPosition] = useState(null);
-  // const { user, setUser, showNavOptions, setShowNavOptions } =
-  //   useContext(productContext);
+  const { user, setUser, showNavOptions, setShowNavOptions } =
+    useContext(productContext);
   // const { photoURL, displayName } = user;
-  // const userProfile = useRef(null);
-  // useEffect(() => {
-  //   const position = userProfile.current.getBoundingClientRect();
-  //   setPosition(position);
-  // }, []);
   return (
-    <>
+    <div className="profileIconContainer">
       {/* <img className='nav-icons' onClick={handleLogin}  src="https://img.icons8.com/ios/30/gender-neutral-user--v1.png" alt="gender-neutral-user--v1"/> */}
-      <img className='nav-icons'  src="https://img.icons8.com/ios/30/gender-neutral-user--v1.png" alt="gender-neutral-user--v1"/>
-    </>
+      <img onClick={() => setShowNavOptions(prev => !prev)} className='nav-icons'  src="https://img.icons8.com/ios/30/gender-neutral-user--v1.png" alt="gender-neutral-user--v1"/>
+      {
+        showNavOptions && (
+          <ProfileOptions />
+        )
+      }
+    </div>
   );
 };
 
