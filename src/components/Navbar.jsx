@@ -40,10 +40,10 @@ const Navbar = () => {
       </div>
       <div className='nav-left-items'>
         <Profile handleLogin={handleLogin}/>
-        <img className='nav-icons'  src="https://img.icons8.com/small/32/shopping-bag.png" alt="shopping-bag"/>
         <Link to="/cart">
-          <img className='nav-icons'  src="https://img.icons8.com/small/32/like--v1.png" alt="like--v1"/>
+        <img className='nav-icons'  src="https://img.icons8.com/small/32/shopping-bag.png" alt="shopping-bag"/>
         </Link>
+          <img className='nav-icons'  src="https://img.icons8.com/small/32/like--v1.png" alt="like--v1"/>
       </div>
 
     </div>
