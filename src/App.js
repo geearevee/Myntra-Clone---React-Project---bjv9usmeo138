@@ -9,6 +9,7 @@ import {
   RouterProvider,
   useAsyncError,
 } from "react-router-dom";
+
 import ErrorPage from "./components/ErrorPage";
 import Cart from "./components/cart";
 import Home from "./components/Home";
@@ -45,7 +46,7 @@ function App() {
   const [loader, setLoader] = useState(true);
   const [data, setData] = useState([]);
   // const [currentPage, setCurrentPage] = useState(1)
-  const [pageData, setPageData] = useState([])
+  const [pageData, setPageData] = useState([]);
   const [user, setUser] = useState(null);
   const [showNavOptions, setShowNavOptions] = useState(false);
   const [cart, setCart] = useState([]);
@@ -55,8 +56,7 @@ function App() {
 
   const fetchData = async (url) => {
     const query = await fetch(url);
-    return   query.json();
-    
+    return query.json();
   };
   useEffect(() => {
     const homePageData = async () => {
@@ -68,12 +68,12 @@ function App() {
   }, []);
   // pagination
   useEffect(() => {
-    if(data.length > 10){
-      setPageData(data.slice(0,10))
-    }else{
-      setPageData(data)
+    if (data.length > 10) {
+      setPageData(data.slice(0, 10));
+    } else {
+      setPageData(data);
     }
-  },[data])
+  }, [data]);
 
   const changeData = async (target) => {
     if (target.gender === "Female") {
@@ -83,7 +83,7 @@ function App() {
       setLoader(false);
     } else {
       const data = await fetchData(mensUrl);
-      
+
       // let slicedData = data;
       // if(data.length > 10){
       //   slicedData = data.slice(0,10)
@@ -124,7 +124,7 @@ function App() {
     searchvalue,
     setSearchValue,
     searchResult,
-    pageData, 
+    pageData,
     setPageData,
   };
   return (
